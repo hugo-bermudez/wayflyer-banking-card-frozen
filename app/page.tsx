@@ -74,7 +74,7 @@ export default function CardPage() {
 
           {/* Bank card */}
           <div
-            className="relative overflow-hidden bank-card"
+            className={`relative overflow-hidden bank-card${isFrozen ? " frozen" : ""}`}
             style={{
               width: 370,
               height: 236,
@@ -222,7 +222,8 @@ export default function CardPage() {
               </svg>
             </div>
 
-            {/* Frost overlay */}
+            {/* Frost texture + overlay */}
+            <div className={`frost-texture${isFrozen ? " active" : ""}`} />
             <div className={`frost-overlay${isFrozen ? " active" : ""}`} />
           </div>
         </div>
