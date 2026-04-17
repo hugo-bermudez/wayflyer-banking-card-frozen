@@ -104,7 +104,7 @@ export default function CardPage() {
                 />
               </svg>
               {isFrozen && (
-                <div className="flex-1 flex justify-end">
+                <div className="flex-1 flex justify-end" style={{ position: "relative", zIndex: 2 }}>
                   <span
                     className="font-medium"
                     style={{
@@ -219,27 +219,6 @@ export default function CardPage() {
                 />
               </svg>
             </div>
-
-            {/* SVG filter for frost texture */}
-            <svg className="absolute" width="0" height="0">
-              <filter id="frost-texture">
-                <feTurbulence
-                  type="fractalNoise"
-                  baseFrequency="0.04"
-                  numOctaves="5"
-                  seed="2"
-                  stitchTiles="stitch"
-                  result="noise"
-                />
-                <feDisplacementMap
-                  in="SourceGraphic"
-                  in2="noise"
-                  scale="6"
-                  xChannelSelector="R"
-                  yChannelSelector="G"
-                />
-              </filter>
-            </svg>
 
             {/* Frost overlay */}
             <div className={`frost-overlay${isFrozen ? " active" : ""}`} />
