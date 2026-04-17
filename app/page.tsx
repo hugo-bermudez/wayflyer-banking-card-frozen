@@ -81,7 +81,7 @@ export default function CardPage() {
               borderRadius: "var(--radius-100)",
               border: "1px solid rgba(250,250,250,0.24)",
               background: isFrozen
-                ? "linear-gradient(120deg, rgb(140,150,210) 7%, rgb(160,130,200) 58%, rgb(80,90,200) 166%)"
+                ? "linear-gradient(135deg, #7BD3E0, #538DCB)"
                 : "linear-gradient(120deg, rgb(248,99,86) 7%, rgb(223,70,173) 58%, rgb(52,39,240) 166%)",
               padding: 20,
               display: "flex",
