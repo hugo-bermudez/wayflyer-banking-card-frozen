@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { SnowFlake, Eye, Undo } from "iconoir-react";
 
 type CardState = "unfrozen" | "frozen";
@@ -188,30 +189,13 @@ export default function CardPage() {
 
             {/* Visa logo */}
             <div className="flex justify-end">
-              <svg
-                width="66"
-                height="20"
-                viewBox="0 0 66 20"
-                fill="none"
+              <Image
+                src="/icons/visa.svg"
+                alt="Visa"
+                width={66}
+                height={20}
                 className="shrink-0"
-              >
-                <path
-                  d="M24.3 0.3L15.9 19.7H10.5L6.4 4.1C6.1 3 5.9 2.5 5 2C3.6 1.2 1.3 0.5 0 0.1L0.1 0.3H8.9C10 0.3 11 1 11.2 2.3L13.3 13.5L18.6 0.3H24.3Z"
-                  fill="white"
-                />
-                <path
-                  d="M42.5 13.4C42.5 8.1 35.1 7.8 35.1 5.5C35.2 4.7 36 3.9 37.6 3.7C38.4 3.6 40.7 3.5 43.2 4.7L44.2 0.8C42.9 0.3 41.2 0 39.1 0C33.8 0 30 2.9 30 7.1C30 10.2 32.7 11.8 34.8 12.8C36.9 13.9 37.6 14.5 37.6 15.4C37.5 16.8 35.9 17.3 34.3 17.4C31.5 17.4 29.9 16.7 28.6 16.1L27.6 20.1C28.9 20.7 31.3 21.2 33.8 21.2C39.5 21.2 42.5 18.3 42.5 13.4Z"
-                  fill="white"
-                />
-                <path
-                  d="M55.6 0.3C54.7 0.3 53.9 0.8 53.5 1.7L45.4 19.7H51.1L52.2 16.7H59.1L59.8 19.7H64.8L60.4 0.3H55.6ZM53.7 12.6L56.6 4.8L58.3 12.6H53.7Z"
-                  fill="white"
-                />
-                <path
-                  d="M27.8 0.3L23.4 19.7H18L22.4 0.3H27.8Z"
-                  fill="white"
-                />
-              </svg>
+              />
             </div>
 
             {/* Large W watermark */}
