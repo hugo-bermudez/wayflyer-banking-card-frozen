@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { SnowFlake, Eye, Undo } from "iconoir-react";
+import { SnowFlake, Eye, Undo, Lock, LockSlash } from "iconoir-react";
 
 type CardState = "unfrozen" | "frozen";
 
@@ -203,7 +203,7 @@ export default function CardPage() {
               className="absolute flex items-center justify-center"
               style={{
                 inset: "-1px 5px -42px -15px",
-                opacity: 0.08,
+                opacity: 0.04,
               }}
             >
               <svg
@@ -263,14 +263,14 @@ export default function CardPage() {
             onClick={() => setState(isFrozen ? "unfrozen" : "frozen")}
           >
             {isFrozen ? (
-              <Undo
+              <LockSlash
                 width={16}
                 height={16}
                 strokeWidth={1.5}
                 color="#0D0D0D"
               />
             ) : (
-              <SnowFlake
+              <Lock
                 width={16}
                 height={16}
                 strokeWidth={1.5}
