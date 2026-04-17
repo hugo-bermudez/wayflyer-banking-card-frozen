@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
 import { SnowFlake, Eye, Undo } from "iconoir-react";
 
@@ -9,6 +9,18 @@ type CardState = "unfrozen" | "frozen";
 export default function CardPage() {
   const [state, setState] = useState<CardState>("unfrozen");
   const isFrozen = state === "frozen";
+  const freezeSoundRef = useRef<HTMLAudioElement>(null);
+  const unfreezeSoundRef = useRef<HTMLAudioElement>(null);
+
+  const toggle = () => {
+    const next = isFrozen ? "unfrozen" : "frozen";
+    const audio = next === "frozen" ? freezeSoundRef.current : unfreezeSoundRef.current;
+    if (audio) {
+      audio.currentTime = 0;
+      audio.play();
+    }
+    setState(next);
+  };
 
   return (
     <div
@@ -241,7 +253,7 @@ export default function CardPage() {
               boxShadow: "var(--shadow-button)",
               background: "transparent",
             }}
-            onClick={() => setState(isFrozen ? "unfrozen" : "frozen")}
+            onClick={toggle}
           >
             {isFrozen ? (
               <Undo
@@ -318,7 +330,11 @@ export default function CardPage() {
         {(["unfrozen", "frozen"] as const).map((key) => (
           <button
             key={key}
-            onClick={() => setState(key)}
+            onClick={() => {
+              const audio = key === "frozen" ? freezeSoundRef.current : unfreezeSoundRef.current;
+              if (audio) { audio.currentTime = 0; audio.play(); }
+              setState(key);
+            }}
             className="pressable cursor-pointer whitespace-nowrap font-medium"
             style={{
               height: 32,
@@ -347,6 +363,10 @@ export default function CardPage() {
           </button>
         ))}
       </div>
+
+      {/* Audio */}
+      <audio ref={freezeSoundRef} src="/sound/freeze.m4a" preload="auto" />
+      <audio ref={unfreezeSoundRef} src="/sound/unfreeze.m4a" preload="auto" />
     </div>
   );
 }
