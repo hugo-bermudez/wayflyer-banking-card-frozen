@@ -74,19 +74,21 @@ export default function CardPage() {
 
           {/* Bank card */}
           <div
-            className="relative overflow-hidden"
+            className="relative overflow-hidden bank-card"
             style={{
               width: 370,
               height: 236,
               borderRadius: "var(--radius-100)",
               border: "1px solid rgba(250,250,250,0.24)",
-              backgroundImage:
-                "linear-gradient(120deg, rgb(248,99,86) 7%, rgb(223,70,173) 58%, rgb(52,39,240) 166%)",
+              background: isFrozen
+                ? "linear-gradient(120deg, rgb(140,150,210) 7%, rgb(160,130,200) 58%, rgb(80,90,200) 166%)"
+                : "linear-gradient(120deg, rgb(248,99,86) 7%, rgb(223,70,173) 58%, rgb(52,39,240) 166%)",
               padding: 20,
               display: "flex",
               flexDirection: "column",
               gap: 8,
               boxShadow: "var(--shadow-button)",
+              transition: "background 600ms cubic-bezier(0.4, 0, 0.2, 1)",
             }}
           >
             {/* Card header */}
