@@ -222,9 +222,8 @@ export default function CardPage() {
               </svg>
             </div>
 
-            {/* Frost texture + overlay */}
+            {/* Frost texture */}
             <div className={`frost-texture${isFrozen ? " active" : ""}`} />
-            <div className={`frost-overlay${isFrozen ? " active" : ""}`} />
           </div>
         </div>
 

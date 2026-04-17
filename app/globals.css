@@ -47,32 +47,14 @@ body {
     "cv05" 1, "cv06" 1, "cv07" 1, "cv08" 1, "cv09" 1, "cv10" 1;
 }
 
-/* Frost overlay — subtle backdrop-filter blur */
-.frost-overlay {
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  -webkit-backdrop-filter: blur(0px) saturate(1) brightness(1);
-  backdrop-filter: blur(0px) saturate(1) brightness(1);
-  transition:
-    backdrop-filter 600ms cubic-bezier(0.4, 0, 0.2, 1),
-    -webkit-backdrop-filter 600ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.frost-overlay.active {
-  -webkit-backdrop-filter: blur(0.2px) saturate(0.2) brightness(1);
-  backdrop-filter: blur(0.2px) saturate(0.2) brightness(1);
-}
-
 /* Frost texture layer */
 .frost-texture {
   position: absolute;
   inset: 0;
   border-radius: inherit;
   pointer-events: none;
-  background: url("/icons/frost_texture.png") center / cover;
-  mix-blend-mode: soft-light;
+  background: url("/icons/frost_texture.jpeg") center / cover;
+  mix-blend-mode: screen;
   opacity: 0;
   transition: opacity 600ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -92,7 +74,7 @@ body {
 
 @keyframes freeze-bounce {
   0% { transform: scale(1); }
-  40% { transform: scale(0.97); }
+  40% { transform: scale(0.98); }
   100% { transform: scale(1); }
 }
 
