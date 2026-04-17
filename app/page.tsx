@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { SnowFlake, Eye, Undo, Lock, LockSlash } from "iconoir-react";
+import { SnowFlake, Eye, Undo } from "iconoir-react";
 
 type CardState = "unfrozen" | "frozen";
 
@@ -242,14 +242,14 @@ export default function CardPage() {
             onClick={() => setState(isFrozen ? "unfrozen" : "frozen")}
           >
             {isFrozen ? (
-              <LockSlash
+              <Undo
                 width={16}
                 height={16}
                 strokeWidth={1.5}
                 color="#0D0D0D"
               />
             ) : (
-              <Lock
+              <SnowFlake
                 width={16}
                 height={16}
                 strokeWidth={1.5}
